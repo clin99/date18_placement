@@ -1,11 +1,14 @@
-# wire_cpu is the simplest CPU version
-# mt_wire_cpu is the multi thread cpu wire version
-# direct_gpu_wire is the direct wirelength computation using GPU
-# stream_gpu_wire is the matrix mult version 
+Source code: 
+ wire_cpu is the simplest CPU version
+ mt_wire_cpu is the multi thread cpu wire version
+ direct_gpu_wire is the direct wirelength computation using GPU
+ stream_gpu_wire is the matrix mult version 
 
-g++ -O2 -std=c++1z -w ./wire_cpu.cpp -o wire_cpu
-g++ -O2 -fopenmp -std=c++1z -w ./mt_wire_cpu.cpp -o mt_wire_cpu 
-/usr/local/cuda-8.0/bin/nvcc -w -O2 -arch sm_60 direct_gpu_wire.cu  "-std=c++11" -o gpu_direct_wire -lcusparse 
-/usr/local/cuda-8.0/bin/nvcc -lineinfo --default-stream per-thread -O2 -w -arch sm_60 lse_stream_gpu_wire.cu  -o lse_stream_gpu_wire "-std=c++11" -lcusparse
+Compile: 
+ g++ -O2 -std=c++1z -w ./wire_cpu.cpp -o wire_cpu
+ g++ -O2 -fopenmp -std=c++1z -w ./mt_wire_cpu.cpp -o mt_wire_cpu 
+ /usr/local/cuda-8.0/bin/nvcc -w -O2 -arch sm_60 direct_gpu_wire.cu  "-std=c++11" -o gpu_direct_wire -lcusparse 
+ /usr/local/cuda-8.0/bin/nvcc -lineinfo --default-stream per-thread -O2 -w -arch sm_60 lse_stream_gpu_wire.cu  -o lse_stream_gpu_wire "-std=c++11" -lcusparse
 
-
+Run:
+ ./binary number    # number could be 0-16
