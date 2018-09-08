@@ -14,4 +14,9 @@ g++ -fopenmp -O2 -std=c++1z ./atomic_double.cpp -o atomic_double
 /usr/local/cuda-8.0/bin/nvcc --default-stream per-thread -w -arch sm_60 -I ./cub-1.6.4 -O2 density_has_stream_gpu.cu -o density_has_stream_gpu "-std=c++11" -lcusparse 
 
 Run:
- ./binary input_file
+ ./binary input_file 
+
+
+Experiment data:
+
+ https://drive.google.com/drive/folders/1ieh1V99XMSADwZCDK6Q2ww4UVAGUeg9d
