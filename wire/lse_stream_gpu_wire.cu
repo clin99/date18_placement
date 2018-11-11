@@ -615,7 +615,7 @@ int main( int argc, char *argv[] ){
     cudaDeviceSynchronize(); 
 
     end_t = std::chrono::high_resolution_clock::now();
-    total_run_time += std::chrono::duration_cast<std::chrono::milliseconds>(end_t-begin_t).count();
+    total_run_time += std::chrono::duration_cast<std::chrono::microseconds>(end_t-begin_t).count();
 
     cudaEventRecord(stop);
     cudaEventSynchronize(stop);
